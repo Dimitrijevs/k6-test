@@ -1,0 +1,48 @@
+1. shared iterations - all v users shares total pool if itearations
+
+executor: "shared-iterations",
+vus: 3,
+iterations: 12
+
+2. per-vu-iterations - each v user does the same number of non shared iterations
+
+executor: "per-vu-iterations",
+vus: 3,
+iterations: 4
+
+3. constant-vus - keeps sertain numbers of v us funning for a specific time
+
+executor: "constant-vus",
+vus: 5,
+duration: "2m"
+
+4. ramping-vus - Increase/decrease v users over time (like stairs)
+
+executor: "ramping-vus",
+startVUs: 1,
+stages: [
+  { duration: "1m", target: 5 }, 
+  { duration: "2m", target: 5 },  
+  { duration: "1m", target: 0 },
+]
+
+5. constant-arrival-rate - Maintain a steady rate of requests per second, adding VUs as needed or if needed
+
+executor: "constant-arrival-rate",
+rate: 10,           // 10 requests per
+timeUnit: "1s",  // 1 second
+duration: "3m",  // total time of 3 minutes
+preAllocatedVUs: 5,  // amount of users at the start
+maxVUs: 20  // max allowed users
+
+6. ramping-arrival-rate - Gradually change the request rate over time
+
+executor: "ramping-arrival-rate",
+startRate: 5,       // Start with 5 req/sec
+stages: [
+  { duration: "2m", target: 20 },   // Ramp up to 20 req/sec
+  { duration: "3m", target: 20 },   // Stay at 20 req/sec  
+  { duration: "1m", target: 0 },    // Ramp down to 0
+],
+preAllocatedVUs: 10,
+maxVUs: 50

@@ -1,0 +1,13 @@
+Load Testing Types
+
+1. Load Testing (Normal Expected Load)
+
+2. Stress Testing (Beyond Normal Load)
+
+3. Spike Testing (Sudden Load Increase)
+
+4. Volume Testing (Large Amounts of Data) - Testing with large amounts of data in the database
+
+5. Soak Testing / Endurance Testing (Long Duration)
+
+6. Breakpoint Testing - Gradually increasing load until system completely breaks

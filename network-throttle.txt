@@ -1,0 +1,40 @@
+1. No Throttling - No throttling, which is the default before applying any network throttling. This can be used to remove the network throttling.
+2. Fast 3G - Emulates a typical fast 3G connection
+3. Slow 3G - Emulates a typical slow 3G connection
+
+Common Network Profiles:
+
+1. Fast 3G Mobile
+javascriptnetworkProfile: {
+  latency: 150,           // 150ms latency
+  download: 1600000,      // 1.6MB/s download
+  upload: 750000          // 750KB/s upload
+}
+
+2. Slow 3G Mobile
+javascriptnetworkProfile: {
+  latency: 2000,          // 2 second latency!
+  download: 400000,       // 400KB/s download
+  upload: 400000          // 400KB/s upload
+}
+
+3. Regular 4G
+javascriptnetworkProfile: {
+  latency: 20,            // 20ms latency
+  download: 4000000,      // 4MB/s download
+  upload: 3000000         // 3MB/s upload
+}
+
+4. Fast WiFi
+javascriptnetworkProfile: {
+  latency: 5,             // 5ms latency
+  download: 30000000,     // 30MB/s download
+  upload: 15000000        // 15MB/s upload
+}
+
+5. No Throttling (Default)
+javascriptnetworkProfile: {
+  latency: 0,             // No added latency
+  download: -1,           // No download limit
+  upload: -1              // No upload limit
+}
